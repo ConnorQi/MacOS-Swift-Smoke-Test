@@ -25,11 +25,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, MSCrashesDelegate, MSPushDel
         // Push Delegate.
         MSPush.setDelegate(self);
         
-        MSAppCenter.start("54273d2a-41ea-4bed-b03a-90a6b73467e8", withServices:[
+        MSAppCenter.start("a2b7200a-d4a5-478d-babd-ddc075c602dc", withServices:[
             MSAnalytics.self,
             MSCrashes.self,
             MSPush.self
             ])
+        MSAppCenter.setLogUrl("https://in-integration.dev.avalanch.es");
         MSCrashes.setUserConfirmationHandler({ (errorReports: [MSErrorReport]) in
             let alert: NSAlert = NSAlert()
             alert.messageText = "Sorry about that!"
