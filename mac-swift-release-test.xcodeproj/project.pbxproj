@@ -64,7 +64,6 @@
 		4A71747823151E7100F13749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A71747B23151E7100F13749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A71747D23151E7100F13749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A71747E23151E7100F13749 /* mac_swift_release_test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mac_swift_release_test.entitlements; sourceTree = "<group>"; };
 		4A71748323151E7200F13749 /* mac-swift-release-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mac-swift-release-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A71748723151E7200F13749 /* mac_swift_release_testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mac_swift_release_testTests.swift; sourceTree = "<group>"; };
 		4A71748923151E7200F13749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,7 +136,6 @@
 				4A71747823151E7100F13749 /* Assets.xcassets */,
 				4A71747A23151E7100F13749 /* Main.storyboard */,
 				4A71747D23151E7100F13749 /* Info.plist */,
-				4A71747E23151E7100F13749 /* mac_swift_release_test.entitlements */,
 			);
 			path = "mac-swift-release-test";
 			sourceTree = "<group>";
