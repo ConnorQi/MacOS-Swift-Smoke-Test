@@ -21,6 +21,7 @@
 		9B4F5F7424DD49A700221C8F /* AppCenterCrashes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F6D24DD49A600221C8F /* AppCenterCrashes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B4F5F7524DD49A700221C8F /* AppCenterPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F6E24DD49A600221C8F /* AppCenterPush.framework */; };
 		9B4F5F7624DD49A700221C8F /* AppCenterPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F6E24DD49A600221C8F /* AppCenterPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BDA723924E284EC0059D60B /* XCUITestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDA723824E284EC0059D60B /* XCUITestBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		9B4F5F6C24DD49A600221C8F /* AppCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenter.framework; path = "AppCenter-SDK-Apple/macOS/AppCenter.framework"; sourceTree = "<group>"; };
 		9B4F5F6D24DD49A600221C8F /* AppCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterCrashes.framework; path = "AppCenter-SDK-Apple/macOS/AppCenterCrashes.framework"; sourceTree = "<group>"; };
 		9B4F5F6E24DD49A600221C8F /* AppCenterPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterPush.framework; path = "AppCenter-SDK-Apple/macOS/AppCenterPush.framework"; sourceTree = "<group>"; };
+		9BDA723824E284EC0059D60B /* XCUITestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUITestBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				4A71749223151E7200F13749 /* mac_swift_release_testUITests.swift */,
+				9BDA723824E284EC0059D60B /* XCUITestBase.swift */,
 				4A71749423151E7200F13749 /* Info.plist */,
 			);
 			path = "mac-swift-release-testUITests";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A71749323151E7200F13749 /* mac_swift_release_testUITests.swift in Sources */,
+				9BDA723924E284EC0059D60B /* XCUITestBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

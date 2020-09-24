@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MSCrashesDelegate, MSPushDel
         // Push Delegate.
         MSPush.setDelegate(self);
         
-        MSAppCenter.start("a2b7200a-d4a5-478d-babd-ddc075c602dc", withServices:[
+        MSAppCenter.start("d5937675-1be5-439c-8851-155ea7f8372b", withServices:[
             MSAnalytics.self,
             MSCrashes.self,
             MSPush.self
