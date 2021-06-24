@@ -54,6 +54,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, CrashesDelegate, CLLocationM
         // Set loglevel to verbose.
         AppCenter.logLevel = .verbose
         
+        AppCenter.logUrl = "https://in-integration.dev.avalanch.es"
+        
         // Set location manager.
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
