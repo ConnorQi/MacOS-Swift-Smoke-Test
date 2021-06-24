@@ -19,8 +19,6 @@
 		9B4F5F7224DD49A700221C8F /* AppCenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F6C24DD49A600221C8F /* AppCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B4F5F7324DD49A700221C8F /* AppCenterCrashes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F6D24DD49A600221C8F /* AppCenterCrashes.framework */; };
 		9B4F5F7424DD49A700221C8F /* AppCenterCrashes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F6D24DD49A600221C8F /* AppCenterCrashes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9B4F5F7524DD49A700221C8F /* AppCenterPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F6E24DD49A600221C8F /* AppCenterPush.framework */; };
-		9B4F5F7624DD49A700221C8F /* AppCenterPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F6E24DD49A600221C8F /* AppCenterPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BDA723924E284EC0059D60B /* XCUITestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDA723824E284EC0059D60B /* XCUITestBase.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +47,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9B4F5F7024DD49A600221C8F /* AppCenterAnalytics.framework in Embed Frameworks */,
-				9B4F5F7624DD49A700221C8F /* AppCenterPush.framework in Embed Frameworks */,
 				9B4F5F7224DD49A700221C8F /* AppCenter.framework in Embed Frameworks */,
 				9B4F5F7424DD49A700221C8F /* AppCenterCrashes.framework in Embed Frameworks */,
 			);
@@ -75,7 +72,6 @@
 		9B4F5F6B24DD49A600221C8F /* AppCenterAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterAnalytics.framework; path = "AppCenter-SDK-Apple/macOS/AppCenterAnalytics.framework"; sourceTree = "<group>"; };
 		9B4F5F6C24DD49A600221C8F /* AppCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenter.framework; path = "AppCenter-SDK-Apple/macOS/AppCenter.framework"; sourceTree = "<group>"; };
 		9B4F5F6D24DD49A600221C8F /* AppCenterCrashes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterCrashes.framework; path = "AppCenter-SDK-Apple/macOS/AppCenterCrashes.framework"; sourceTree = "<group>"; };
-		9B4F5F6E24DD49A600221C8F /* AppCenterPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppCenterPush.framework; path = "AppCenter-SDK-Apple/macOS/AppCenterPush.framework"; sourceTree = "<group>"; };
 		9BDA723824E284EC0059D60B /* XCUITestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUITestBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +81,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B4F5F6F24DD49A600221C8F /* AppCenterAnalytics.framework in Frameworks */,
-				9B4F5F7524DD49A700221C8F /* AppCenterPush.framework in Frameworks */,
 				9B4F5F7124DD49A700221C8F /* AppCenter.framework in Frameworks */,
 				9B4F5F7324DD49A700221C8F /* AppCenterCrashes.framework in Frameworks */,
 			);
@@ -167,7 +162,6 @@
 				9B4F5F6C24DD49A600221C8F /* AppCenter.framework */,
 				9B4F5F6B24DD49A600221C8F /* AppCenterAnalytics.framework */,
 				9B4F5F6D24DD49A600221C8F /* AppCenterCrashes.framework */,
-				9B4F5F6E24DD49A600221C8F /* AppCenterPush.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -483,7 +477,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V39U3BWB97;
+				DEVELOPMENT_TEAM = 4328G8T97J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/macOS",
@@ -508,7 +502,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V39U3BWB97;
+				DEVELOPMENT_TEAM = 4328G8T97J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/macOS",

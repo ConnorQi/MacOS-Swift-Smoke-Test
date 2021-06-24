@@ -26,16 +26,19 @@ class ViewController: NSViewController {
     }
 
     @IBAction func event(_ sender: NSButton) {
-        MSAnalytics.trackEvent("event")
+        Analytics.trackEvent("\(Host.current().localizedName ?? "")")
     }
     
     
     @IBAction func eventwithproperties(_ sender: NSButton) {
-        MSAnalytics.trackEvent("eventwithproperties", withProperties: ["Category" : "123", "2342eqwe" : "favorite.avi"])
+        Analytics.trackEvent("\(Host.current().localizedName ?? "") with properties",
+                             withProperties:
+                                ["Category" : "Music",
+                                 "FileName" : "favorite.avi"])
     }
     
     @IBAction func crash(_ sender: NSButton) {
-        MSCrashes.generateTestCrash()
+        Crashes.generateTestCrash()
     }
 }
 

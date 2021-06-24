@@ -8,30 +8,25 @@
 
 import Cocoa
 import CoreLocation
-
 import AppCenter
 import AppCenterAnalytics
 import AppCenterCrashes
-import AppCenterPush
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, MSCrashesDelegate, MSPushDelegate, CLLocationManagerDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, CrashesDelegate, CLLocationManagerDelegate {
 
    var locationManager: CLLocationManager = CLLocationManager()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        MSCrashes.setDelegate(self);
-        // Push Delegate.
-        MSPush.setDelegate(self);
+        Crashes.delegate = self
         
-        MSAppCenter.start("d5937675-1be5-439c-8851-155ea7f8372b", withServices:[
-            MSAnalytics.self,
-            MSCrashes.self,
-            MSPush.self
+        
+        AppCenter.start(withAppSecret: "be361901-5ebb-454b-860d-7bae3fcfecba", services:[
+            Analytics.self,
+            Crashes.self,
             ])
-        MSAppCenter.setLogUrl("https://in-integration.dev.avalanch.es");
-        MSCrashes.setUserConfirmationHandler({ (errorReports: [MSErrorReport]) in
+        Crashes.userConfirmationHandler = ({ (errorReports: [ErrorReport]) in
             let alert: NSAlert = NSAlert()
             alert.messageText = "Sorry about that!"
             alert.informativeText = "Do you want to send an anonymous crash report so we can fix the issue?"
@@ -41,13 +36,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, MSCrashesDelegate, MSPushDel
             
             switch (alert.runModal()) {
             case NSApplication.ModalResponse.alertFirstButtonReturn:
-                MSCrashes.notify(with: .always)
+                Crashes.notify(with: .always)
                 break;
             case NSApplication.ModalResponse.alertSecondButtonReturn:
-                MSCrashes.notify(with: .send)
+                Crashes.notify(with: .send)
                 break;
             case NSApplication.ModalResponse.alertThirdButtonReturn:
-                MSCrashes.notify(with: .dontSend)
+                Crashes.notify(with: .dontSend)
                 break;
             default:
                 break;
@@ -57,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MSCrashesDelegate, MSPushDel
         
      
         // Set loglevel to verbose.
-        MSAppCenter.setLogLevel(MSLogLevel.verbose)
+        AppCenter.logLevel = .verbose
         
         // Set location manager.
         locationManager.delegate = self
@@ -69,51 +64,35 @@ class AppDelegate: NSObject, NSApplicationDelegate, MSCrashesDelegate, MSPushDel
     }
     
     // Crashes Delegate
-    
-    func crashes(_ crashes: MSCrashes!, shouldProcessErrorReport errorReport: MSErrorReport!) -> Bool {
+    func crashes(_ crashes: Crashes, shouldProcess errorReport: ErrorReport) -> Bool {
         if errorReport.exceptionReason != nil {
             NSLog("Should process error report with: %@", errorReport.exceptionReason);
         }
         return true
     }
     
-    func crashes(_ crashes: MSCrashes!, willSend errorReport: MSErrorReport!) {
+    func crashes(_ crashes: Crashes, willSend errorReport: ErrorReport) {
         if errorReport.exceptionReason != nil {
             NSLog("Will send error report with: %@", errorReport.exceptionReason);
         }
     }
     
-    func crashes(_ crashes: MSCrashes!, didSucceedSending errorReport: MSErrorReport!) {
+    func crashes(_ crashes: Crashes, didSucceedSending errorReport: ErrorReport) {
         if errorReport.exceptionReason != nil {
             NSLog("Did succeed error report sending with: %@", errorReport.exceptionReason);
         }
     }
     
-    func crashes(_ crashes: MSCrashes!, didFailSending errorReport: MSErrorReport!, withError error: Error!) {
+    func crashes(_ crashes: Crashes, didFailSending errorReport: ErrorReport, withError error: Error?) {
         if errorReport.exceptionReason != nil {
-            NSLog("Did fail sending report with: %@, and error: %@", errorReport.exceptionReason, error.localizedDescription);
+            NSLog("Did fail sending report with: %@, and error: %@", errorReport.exceptionReason, error?.localizedDescription ?? "");
         }
     }
     
-    func attachments(with crashes: MSCrashes, for errorReport: MSErrorReport) -> [MSErrorAttachmentLog] {
-        let attachment1 = MSErrorAttachmentLog.attachment(withText: "Hello world!", filename: "hello.txt")
-        let attachment2 = MSErrorAttachmentLog.attachment(withBinary: "Fake image".data(using: String.Encoding.utf8), filename: nil, contentType: "image/jpeg")
+    func attachments(with crashes: Crashes, for errorReport: ErrorReport) -> [ErrorAttachmentLog]? {
+        let attachment1 = ErrorAttachmentLog.attachment(withText: "\(Host.current().localizedName ?? "")", filename: "hello.txt")
+        let attachment2 = ErrorAttachmentLog.attachment(withBinary: "Fake image".data(using: String.Encoding.utf8), filename: nil, contentType: "image/jpeg")
         return [attachment1!, attachment2!]
-    }
-
-    func push(_ push: MSPush!, didReceive pushNotification: MSPushNotification!) {
-        let title: String = pushNotification.title ?? ""
-        var message: String = pushNotification.message ?? ""
-        var customData: String = ""
-        for item in pushNotification.customData {
-            customData =  ((customData.isEmpty) ? "" : "\(customData), ") + "\(item.key): \(item.value)"
-        }
-        message =  message + ((customData.isEmpty) ? "" : "\n\(customData)")
-        let alert: NSAlert = NSAlert()
-        alert.messageText = title
-        alert.informativeText = message
-        alert.addButton(withTitle: "OK")
-        alert.runModal()
     }
     
     // CLLocationManager Delegate
@@ -122,7 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MSCrashesDelegate, MSPushDel
         let userLocation:CLLocation = locations[0] as CLLocation
         CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) in
             if error == nil {
-                MSAppCenter.setCountryCode(placemarks?.first?.isoCountryCode)
+                AppCenter.countryCode = placemarks?.first?.isoCountryCode ?? ""
             }
         }
     }
@@ -131,4 +110,3 @@ class AppDelegate: NSObject, NSApplicationDelegate, MSCrashesDelegate, MSPushDel
         print("Failed to find user's location: \(error.localizedDescription)")
     }
 }
-
